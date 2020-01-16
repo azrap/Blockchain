@@ -170,6 +170,7 @@ def new_transaction():
             'index': block['index'],
             'proof': block['proof'],
             'previous_hash': block['previous_hash'],
+            'new_block': block
         }
 
         return jsonify(response), 200
@@ -187,10 +188,8 @@ def new_transaction():
 @app.route('/last_block', methods=['GET'])
 def last_block():
 
-    last_block = blockchain.last_block
-
     response = {
-        'last_block': last_block
+        'last_block': blockchain.last_block
 
     }
 
